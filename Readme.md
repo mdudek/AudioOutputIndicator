@@ -1,0 +1,1 @@
+﻿This .Net Core Winform application is a tool that notify user about default audio device change. You can easily check if your bluetooth headphones are connected right now.
