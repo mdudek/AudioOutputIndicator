@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon />
+    <ApplicationIcon>aoi.ico</ApplicationIcon>
     <StartupObject />
     <Company />
     <Product>Audio Output Indicator</Product>
