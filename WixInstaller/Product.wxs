@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="41A7A191-56CA-4E7C-88D2-F34170E6AD2F" Name="Audio Output Indicator" Language="1033" Version="1.0.0.0" Manufacturer="Michael Dudek" UpgradeCode="6e311e12-5994-4c17-950c-f4aca6d5dc4d">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes"/>
+
+		<Feature Id="ProductFeature" Title="Audio Output Indicator" Level="1">
+			<!--<ComponentGroupRef Id="ProductComponents" />-->
+      <ComponentGroupRef Id="HarvestedComponents" />
+      <ComponentRef Id="AOI_StartMenu"/>
+      <ComponentRef Id="AOI_AutoStart"/>
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="Audio Output Indicator" />
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="AOI_Menu" Name="AOI"/>
+      </Directory>
+
+      <Directory Id="StartupFolder"/>
+		</Directory>
+	</Fragment>
+
+	<!--<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			--><!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. --><!--
+			 --><!--<Component Id="ProductComponent">
+         <Shortcut Id="AppShortcut" Name="AudioOutputIndicator" Directory="ProgramMenuFolder"></Shortcut>
+			 </Component>--><!-- 
+		</ComponentGroup>
+	</Fragment>-->
+  <Fragment>
+    <DirectoryRef Id="AOI_Menu">
+      <Component Id="AOI_StartMenu" Guid="B8C6D5CE-26BD-45E1-904D-97FC3EEADAE8">
+        <Shortcut Id="AOI_Run" Name="Audio Output Indicator" Description="Start Audio Output Indicator"
+                  Target="[#filB2C8A2AD2BC13ECC7E0FCA9353F1C9C8]"
+                  WorkingDirectory="INSTALLFOLDER" />
+
+        <RemoveFolder Id="UI_RemoveShortcut" Directory="AOI_Menu" On="uninstall"/>
+        <RegistryKey Root="HKCU" Key="Software\AOI\AOI">
+          <RegistryValue Name="sm_shortcut" Type="integer" Value="1" KeyPath="yes"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="StartupFolder">
+      <Component Id="AOI_AutoStart" Guid="E10E004B-8A38-43F9-8365-4C44267565F2">
+        <Shortcut Id="SCUT_AutoStart" Name="AOI Start" Description="AutoStart Audio Output Indicator"
+                  Target="[#filB2C8A2AD2BC13ECC7E0FCA9353F1C9C8]"
+                  WorkingDirectory="INSTALLFOLDER" />
+
+        <RegistryKey Root="HKCU" Key="Software\AOI\AOI">
+          <RegistryValue Name="su_shortcut" Type="integer" Value="1" KeyPath="yes"/>
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+</Wix>
