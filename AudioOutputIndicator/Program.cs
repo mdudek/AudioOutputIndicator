@@ -24,9 +24,10 @@ namespace AudioOutputIndicator
         [STAThread]
         static void Main()
         {
-            var culture = new CultureInfo("cs");
-            Thread.CurrentThread.CurrentCulture = culture;
-            Thread.CurrentThread.CurrentUICulture = culture;
+            //var culture = new CultureInfo("cs");
+            //Thread.CurrentThread.CurrentCulture = culture;
+            //Thread.CurrentThread.CurrentUICulture = culture;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -113,7 +114,7 @@ namespace AudioOutputIndicator
 
             void ShowAbout(object sender, EventArgs e)
             {
-                MessageBox.Show($"Audio Input Indicator - {GetAppVersion()}", Resources.Texts.About, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Audio Output Indicator - {GetAppVersion()}", Resources.Texts.About, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             private async void ShowDefaultDevice(bool updateIconOnly = false)
