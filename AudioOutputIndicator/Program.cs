@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Windows.Devices.Bluetooth;
 using Windows.Devices.Enumeration;
@@ -32,6 +34,7 @@ namespace AudioOutputIndicator
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new IndicatorApplicationContext());
+
         }
 
 
@@ -50,6 +53,9 @@ namespace AudioOutputIndicator
                 _monitor = new RegistryMonitor(RegistryHive.CurrentUser, OsThemeRegistryPath);
                 _monitor.RegChanged += OnRegChanged;
                 _monitor.Start();
+
+
+                SystemEvents.PowerModeChanged += OnPowerChange;
 
 
                 // Initialize
@@ -85,6 +91,17 @@ namespace AudioOutputIndicator
                 if (_selectedIconSet == IconSets.Auto)
                 {
                     ShowDefaultDevice(true);
+                }
+            }
+
+            private async void OnPowerChange(object s, PowerModeChangedEventArgs e)
+            {
+                switch (e.Mode)
+                {
+                    case PowerModes.Resume:
+                        await Task.Delay(3000);
+                        ShowDefaultDevice(true);
+                        break;
                 }
             }
 
@@ -128,6 +145,7 @@ namespace AudioOutputIndicator
                 // audio devices
                 var audioDevices = await DeviceInformation.FindAllAsync(MediaDevice.GetAudioRenderSelector());
                 var defaultAudioId = MediaDevice.GetDefaultAudioRenderId(AudioDeviceRole.Default);
+                Debug.Print("defaultAudioId:" + defaultAudioId + '\n');
                 if (_defaultAudioId != defaultAudioId || updateIconOnly)
                 {
                     var defaultAudio = audioDevices.FirstOrDefault(a => a.Id == defaultAudioId);
@@ -157,6 +175,8 @@ namespace AudioOutputIndicator
 
             private Icon getDeviceIcon(string deviceIconString)
             {
+
+                Debug.WriteLine($"deviceIconString: {deviceIconString}");
                 // %windir%\system32\mmres.dll,-3010
                 // "C:\\Windows\\System32\\DDORes.dll,-2033"
 

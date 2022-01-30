@@ -7,22 +7,22 @@
     </Fragment>
     <Fragment>
         <ComponentGroup Id="HarvestedComponents">
-            <Component Id="cmp1F26F25BBD2AB6AB0821640B70CDCA20" Directory="INSTALLFOLDER" Guid="569EA222-15C6-4902-983D-49AF89B6EB69">
+            <Component Id="cmp1F26F25BBD2AB6AB0821640B70CDCA20" Directory="INSTALLFOLDER" Guid="6BBC0ED4-BFBF-4AFE-A272-6443D283C093">
                 <File Id="fil59E491BD511434B0C934F789C8A2E0FF" KeyPath="yes" Source="$(var.Deploy)\AudioOutputIndicator.deps.json" />
             </Component>
-            <Component Id="cmp256B748B2DEB626678D2F2CC24B9A3DA" Directory="INSTALLFOLDER" Guid="7FEF6D85-649E-43F8-9C2F-887EDA04AC2E">
+            <Component Id="cmp256B748B2DEB626678D2F2CC24B9A3DA" Directory="INSTALLFOLDER" Guid="3889B114-EED2-456B-B4B5-88F6F66E0635">
                 <File Id="fil0E818ED060F9E4F6E7DE071AFD49E004" KeyPath="yes" Source="$(var.Deploy)\AudioOutputIndicator.dll" />
             </Component>
-            <Component Id="cmpB4687B86E8E743466EF8D9C54E710DDE" Directory="INSTALLFOLDER" Guid="3B6CF522-B191-446E-A162-0A7E59D2810B">
+            <Component Id="cmpB4687B86E8E743466EF8D9C54E710DDE" Directory="INSTALLFOLDER" Guid="F3E6D812-F31E-4F51-A0B2-CF55179D6059">
                 <File Id="filB2C8A2AD2BC13ECC7E0FCA9353F1C9C8" KeyPath="yes" Source="$(var.Deploy)\AudioOutputIndicator.exe" />
             </Component>
-            <Component Id="cmpA3FC553DA9987735F74C1AD1D6B3807C" Directory="INSTALLFOLDER" Guid="2896E98B-7ECB-4669-AB1F-96638857DBEF">
+            <Component Id="cmpA3FC553DA9987735F74C1AD1D6B3807C" Directory="INSTALLFOLDER" Guid="4D647486-82AE-4436-B57D-338B70F09ED0">
                 <File Id="fil36E586E7FFE249D91611AABB80CA3F99" KeyPath="yes" Source="$(var.Deploy)\AudioOutputIndicator.pdb" />
             </Component>
-            <Component Id="cmp43DF38BCF1E99EDF37CFD9EDE427C286" Directory="INSTALLFOLDER" Guid="59BD8278-78F3-4563-A212-27844458A8B0">
+            <Component Id="cmp43DF38BCF1E99EDF37CFD9EDE427C286" Directory="INSTALLFOLDER" Guid="EBCF6A3D-2F82-4153-AEB2-93F83FF1186A">
                 <File Id="fil7A33E689D9B36D5E005FBE470ACF784B" KeyPath="yes" Source="$(var.Deploy)\AudioOutputIndicator.runtimeconfig.json" />
             </Component>
-            <Component Id="cmpB469F0CCB155BEF94BE61854CC4FC2B7" Directory="dirB15F4604371D144EAEEAD44FE901D873" Guid="E370F2B4-4D69-4423-B034-9C679B4329DD">
+            <Component Id="cmpB469F0CCB155BEF94BE61854CC4FC2B7" Directory="dirB15F4604371D144EAEEAD44FE901D873" Guid="6DF1DC93-827C-4D9A-8D9F-0E93EF3FCE69">
                 <File Id="filDE5C9EA4480247776758A05F64D67830" KeyPath="yes" Source="$(var.Deploy)\cs\AudioOutputIndicator.resources.dll" />
             </Component>
         </ComponentGroup>
